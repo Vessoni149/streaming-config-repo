@@ -23,11 +23,3 @@ spring:
   kafka:
     consumer:
       group-id: user-service-group-v2
-      # Usamos el ErrorHandlingDeserializer para evitar el bucle infinito
-      value-deserializer: org.springframework.kafka.support.serializer.ErrorHandlingDeserializer
-      properties:
-        # Aquí definimos que el deserializador real es el de JSON
-        spring.deserializer.value.delegate.class: org.springframework.kafka.support.serializer.JsonDeserializer
-        spring.json.trusted.packages: "*"
-        spring.json.value.default.type: "com.streaming.user_service.infrastructure.kafka.SubscriptionEvent"
-        spring.json.use.type.info.headers: false
