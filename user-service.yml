@@ -1,5 +1,5 @@
 server:
-  port: 8081
+  port: ${PORT:0} # Esto permitirá que cada instancia tenga un puerto aleatorio al arrancar
 
 eureka:
   client:
