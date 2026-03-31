@@ -14,10 +14,9 @@ spring:
           enabled: true
           lower-case-service-id: true
       routes:
-        - id: users-service-combined-route
-          uri: lb://USER-SERVICE
+        - id: users-service-route
+          uri: lb://user-service  # <--- USAR MINÚSCULAS Y GUION (igual que el name del MS)
           predicates:
-            # Aquí escuchamos AMBAS rutas en una sola regla
-            - Path=/users/**, /profiles/**
-          # IMPORTANTE: NO USES StripPrefix aquí. 
-          # Deja que el microservicio reciba la ruta completa.
+            - Path=/users/**
+          filters:
+            - StripPrefix=1 # Vamos a usarlo para limpiar la URL
