@@ -13,10 +13,10 @@ spring:
           lower-case-service-id: true
       routes:
         - id: users-service-combined-route
-          uri: lb://USER-SERVICE
+          uri: lb://user-service
           predicates:
             - Path=/users/**, /profiles/**
         - id: users-service-lb-test
-          uri: lb://USER-SERVICE
+          uri: lb://user-service
           predicates:
             - Path=/test
