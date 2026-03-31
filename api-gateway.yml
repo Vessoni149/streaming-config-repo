@@ -14,8 +14,8 @@ spring:
           enabled: true
           lower-case-service-id: true # Esto permite usar minúsculas en las rutas automáticas
       routes:
-        - id: users-route
-          uri: lb://USER-SERVICE  # 'lb://' le dice al Gateway: "Busca en Eureka y reparte la carga"
+        - id: user-service-route
+          uri: lb://user-service  # 'lb://' le dice al Gateway: "Busca en Eureka y reparte la carga"
           predicates:
             - Path=/users/** # Todas las peticiones que empiecen con /users/ irán al MS de usuarios
           filters:
