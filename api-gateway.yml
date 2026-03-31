@@ -17,6 +17,6 @@ spring:
         - id: users-service-route
           uri: lb://user-service  # <--- USAR MINÚSCULAS Y GUION (igual que el name del MS)
           predicates:
-            - Path=/users/**
+            - Path=/users/**, /profiles/**, /test
           filters:
             - StripPrefix=1 # Vamos a usarlo para limpiar la URL
