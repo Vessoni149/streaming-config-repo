@@ -12,16 +12,12 @@ spring:
       discovery:
         locator:
           enabled: true
-          lower-case-service-id: true # Esto permite usar minúsculas en las rutas automáticas
-     routes:
-        - id: users-service-route
+          lower-case-service-id: true
+      routes:
+        - id: users-service-combined-route
           uri: lb://USER-SERVICE
           predicates:
-            - Path=/users/**
-          # Sin StripPrefix, el MS recibe "/users/..."
-
-        - id: profiles-service-route
-          uri: lb://USER-SERVICE
-          predicates:
-            - Path=/profiles/**
-          # Sin StripPrefix, el MS recibe "/profiles/..."    # Quita la palabra '/users' antes de mandarlo al microservicio
+            # Aquí escuchamos AMBAS rutas en una sola regla
+            - Path=/users/**, /profiles/**
+          # IMPORTANTE: NO USES StripPrefix aquí. 
+          # Deja que el microservicio reciba la ruta completa.
