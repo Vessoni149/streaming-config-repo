@@ -7,19 +7,22 @@ eureka:
 spring:
   cloud:
     gateway:
-      discovery:
-        locator:
-          enabled: true
-          lower-case-service-id: true
-      routes:
-        - id: users-service-combined-route
-          uri: lb://user-service
-          predicates:
-            - Path=/users/**, /profiles/**
-        - id: users-service-lb-test
-          uri: lb://user-service
-          predicates:
-            - Path=/test
+      server:
+        webflux:
+          discovery:
+            locator:
+              enabled: true
+              lower-case-service-id: true
+          routes:
+            - id: users-service-combined-route
+              uri: lb://user-service
+              predicates:
+                - Path=/users/**, /profiles/**
+
+            - id: users-service-lb-test
+              uri: lb://user-service
+              predicates:
+                - Path=/test
 management:
   endpoints:
     web:
