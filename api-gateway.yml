@@ -31,8 +31,7 @@ management:
   endpoints:
     web:
       exposure:
-        include: gateway
-
+        include: health,env,mappings,metrics,gateway
   endpoint:
     gateway:
       access: unrestricted
