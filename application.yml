@@ -1,6 +1,10 @@
 spring:
   kafka:
     bootstrap-servers: localhost:9092
+    template:
+      observation-enabled: true
+    listener:
+      observation-enabled: true
 management:
   endpoints:
     web:
