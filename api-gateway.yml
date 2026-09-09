@@ -26,6 +26,12 @@ spring:
               uri: lb://user-service
               predicates:
                 - Path=/test
+            - id: users-service-swagger
+              uri: lb://user-service
+              predicates:
+                - Path=/user-docs/**
+              filters:
+                - RewritePath=/user-docs/(?<segment>.*), /$\{segment}
 
 management:
   endpoints:
