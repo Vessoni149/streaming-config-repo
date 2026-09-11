@@ -11,6 +11,7 @@ spring:
     gateway:
       server:
         webflux:
+        
           discovery:
             locator:
               enabled: true
