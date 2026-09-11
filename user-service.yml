@@ -32,3 +32,6 @@ spring:
         spring.json.trusted.packages: "*"
         spring.json.use.type.headers: false
         spring.json.value.default.type: com.streaming.user_service.infrastructure.kafka.SubscriptionEvent
+springdoc:
+  swagger-ui:
+    url: /user-docs/v3/api-docs
