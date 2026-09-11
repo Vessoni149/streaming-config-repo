@@ -33,6 +33,12 @@ spring:
                 - Path=/user-docs/**
               filters:
                 - StripPrefix=1
+            - id: users-service-swagger-config
+              uri: lb://user-service
+              predicates:
+                - Path=/user-docs/v3/api-docs/swagger-config
+              filters:
+                - StripPrefix=1  
 
 management:
   endpoints:
