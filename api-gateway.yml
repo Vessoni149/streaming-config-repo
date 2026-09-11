@@ -27,12 +27,12 @@ spring:
               uri: lb://user-service
               predicates:
                 - Path=/test
-           - id: users-service-swagger
-             uri: lb://user-service
-             predicates:
-               - Path=/user-docs/**
-             filters:
-               - StripPrefix=1
+            - id: users-service-swagger
+              uri: lb://user-service
+              predicates:
+                - Path=/user-docs/**
+              filters:
+                - StripPrefix=1
 
 management:
   endpoints:
